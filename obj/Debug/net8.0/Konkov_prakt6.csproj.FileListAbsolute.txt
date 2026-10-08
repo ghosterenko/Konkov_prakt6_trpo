@@ -166,3 +166,4 @@ C:\Users\st310-05\Desktop\Konkov_prakt6\obj\Debug\net8.0\refint\Konkov_prakt6.dl
 C:\Users\st310-05\Desktop\Konkov_prakt6\obj\Debug\net8.0\Konkov_prakt6.pdb
 C:\Users\st310-05\Desktop\Konkov_prakt6\obj\Debug\net8.0\Konkov_prakt6.genruntimeconfig.cache
 C:\Users\st310-05\Desktop\Konkov_prakt6\obj\Debug\net8.0\ref\Konkov_prakt6.dll
+C:\Users\st310-05\Desktop\Konkov_prakt6\obj\Debug\net8.0\Konkov_prakt6.sourcelink.json
