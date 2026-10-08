@@ -1,0 +1,6 @@
+@Konkov_prakt6_HostAddress = http://localhost:5191
+
+GET {{Konkov_prakt6_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
