@@ -7,6 +7,7 @@ namespace Konkov_prakt6.Controllers
     public class EmployeesController : Controller
     {
         static WebApiDatabaseContext context = new WebApiDatabaseContext( );
+
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -25,27 +26,66 @@ namespace Konkov_prakt6.Controllers
 
 
         [HttpPost]
-        public IActionResult Create(Employee employee)
+        public IActionResult Post(Employee employee)
         {
-            context.Employees.Add(employee);
-            return Created();
+            if (context.Employees.FirstOrDefault(obj => obj.Id == employee.Id) != null)
+                return BadRequest( );
+            if (employee != null)
+            {
+                context.Employees.Add(employee);
+                context.SaveChanges( );
+                return Created();
+            }
+            return BadRequest( );
         }
 
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, Employee employee)
+        public IActionResult Put(int id, Employee employee)
         {
-            if (context.Employees.FirstOrDefault(obj => obj.Id == id) == null)
-                return NotFound( );
-            context.Employees.ToList( ) [ id ] = employee;
-            return Ok();
+            Employee? employees = context.Employees.FirstOrDefault(obj => obj.Id == id);
+            if (employees != null && employee != null)
+            {
+                employees.FullName = employee.FullName;
+                employees.Position = employee.Position;
+                employees.Salary = employee.Salary;
+                employee.HireDate = employee.HireDate;
+                employees.IsActive = employee.IsActive;
+            }
+            context.SaveChanges( );
+            return Ok(employees);
         }
 
 
         [HttpPatch("{id}")]
-        public IActionResult Patch(int id)
+        public IActionResult Patch(int id, EmployeeDto employeeDto)
         {
-            Employee employee = new Employee( );
+            Employee? employee = context.Employees.FirstOrDefault(obj => obj.Id == id);
+            if (employee == null)
+                return NotFound( );
+
+            if (employeeDto.FullName != null)
+            {
+                employee.FullName = employeeDto.FullName;
+            }
+            if (employeeDto.Position != null)
+            {
+                employee.Position = employeeDto.Position;
+            }
+            if (employeeDto.Salary != null)
+            {
+                employee.Salary = (decimal)employeeDto.Salary;
+            }
+            if (employeeDto.HireDate != null)
+            {
+                employee.HireDate = (DateOnly)employeeDto.HireDate;
+            }
+            if (employeeDto.IsActive != null)
+            {
+                employee.IsActive = (bool)employeeDto.IsActive;
+            }
+
+            context.SaveChanges( );
 
             return Ok( );
         }
@@ -58,7 +98,8 @@ namespace Konkov_prakt6.Controllers
             if (employee == null)
                 return NotFound( );
             context.Employees.Remove(employee);
-            return Ok(id);
+            context.SaveChanges( );
+            return NoContent();
         }
 
     }

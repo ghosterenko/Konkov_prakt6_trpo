@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VOXc3TxlTbXnthpHfMGm2SwQ8rvX0lwpdEcV/V079kUYA2Y2+CXzrFIKnwHJUF6VTFoO5suneBaae0qobX71jQ==",
+  "dgSpecHash": "8YKbuAYXAa/GaAC0BmADPqVfVqDIGLE1XAa7y+egpIHjm4ZGymhuTu8FBiPpNPu7BTFYy4vJzZ7Rwp5ieV9COw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\st310-05\\Desktop\\Konkov_prakt6\\Konkov_prakt6.csproj",
+  "projectFilePath": "C:\\Users\\st310-05\\Desktop\\Konkov_prakt6_trpo\\Konkov_prakt6.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\st310-05\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\st310-05\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
