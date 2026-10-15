@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Konkov_prakt6")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b485e3480d7d1fe2553966da446a37f4f3bff266")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c0d439c8b33b8205d59620312ac73ccf4d2453c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Konkov_prakt6")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Konkov_prakt6")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

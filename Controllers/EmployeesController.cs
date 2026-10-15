@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Konkov_prakt6.Controllers
 {
@@ -9,9 +10,17 @@ namespace Konkov_prakt6.Controllers
         static WebApiDatabaseContext context = new WebApiDatabaseContext( );
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult GetAll ([FromQuery] string? pos, decimal? minSalary)
         {
             List<Employee> employees = context.Employees.ToList( );
+            if (pos != null)
+            {
+                employees = context.Employees.Where(obj => obj.Position.ToLower( ) == pos.ToLower()).ToList( );
+            }
+            if (minSalary != null)
+            {
+                employees = context.Employees.Where(obj => obj.Salary >= minSalary).ToList( );
+            }
             return Ok(employees);
         }
         [HttpGet("{id}")]
@@ -23,10 +32,8 @@ namespace Konkov_prakt6.Controllers
             return Ok(employee);
         }
 
-
-
         [HttpPost]
-        public IActionResult Post(Employee employee)
+        public IActionResult Post( [FromBody] Employee employee)
         {
             if (context.Employees.FirstOrDefault(obj => obj.Id == employee.Id) != null)
                 return BadRequest( );
